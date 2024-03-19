@@ -71,6 +71,7 @@ Good luck, and we look forward to seeing your URL Shortener project! If you have
 clarifications, please reach out to us.
 
 ## Implementation
+### Docker Compose Implementation
 
 To start the applicationa and redis server:
 ```build-nc
@@ -83,3 +84,7 @@ Do a post using the swagger docs (example `k1` and `v1` for key,value respective
 
 To shutdown the application and redis server:
 ```make down```
+
+### Kubernetes/Minikube Implementation
+
+Please view the README in the `k8s/` directory

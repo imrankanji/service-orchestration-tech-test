@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pw-app
+  labels:
+    app: pw-app
+spec:
+  selector:
+    matchLabels:
+      app: pw-app
+  template:
+    metadata:
+      labels:
+        app: pw-app
+    spec:
+      containers:
+      - name: pw-app
+        image: pw/crudservice:latest
+        imagePullPolicy: Never
+        envFrom:
+          - configMapRef:
+              name: pw-config
+        ports:
+        - containerPort: 8000
+        resources:
+          limits:
+            cpu: "1"
+            memory: 1Gi
+          requests:
+            cpu: 100m
+            memory: 100Mi
