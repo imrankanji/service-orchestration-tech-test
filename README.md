@@ -69,3 +69,17 @@ ask you to solve an algorithm, but you will be expected to demo your solution an
 
 Good luck, and we look forward to seeing your URL Shortener project! If you have any questions or need
 clarifications, please reach out to us.
+
+## Implementation
+
+To start the applicationa and redis server:
+```build-nc
+make up```
+
+Ensure the application is running at `http://localhost.com:8000/pw`
+The swagger docs are available at `http://localhost:8000/docs`
+
+Do a post using the swagger docs (example `k1` and `v1` for key,value respectively) and view the result at `http://localhost:8000/pw/k1`
+
+To shutdown the application and redis server:
+```make down```

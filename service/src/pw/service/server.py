@@ -1,13 +1,12 @@
-from confection import registry, Config
 from fastapi import FastAPI, HTTPException
+from os import getenv as ge
 from pydantic import BaseModel
 from redis import Redis
 
 app = FastAPI()
 
-config = registry.resolve(Config().from_disk('./service.cfg'))
-REDIS_HOST = config['redis']['host']
-REDIS_PORT = config['redis']['port']
+REDIS_HOST = ge("REDIS_HOST")
+REDIS_PORT = ge("REDIS_PORT")
 r = Redis(host=REDIS_HOST, port=REDIS_PORT, db=0, decode_responses=True)
 
 class ShortenRequest(BaseModel):

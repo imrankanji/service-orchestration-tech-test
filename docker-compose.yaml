@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  fw-service:
+    image: "pw/crudservice:latest"
+    ports:
+      - "8000:8000"
+    environment:
+      REDIS_HOST: pw-redis
+      REDIS_PORT: 6379
+    command: redis-server --save 60 1 --loglevel warning
+    depends_on:
+      - pw-redis
+    
+  pw-redis:
+    image: "redis:7.2.4-alpine"
+    volumes: 
+      - rediscache:/data
+
+volumes:
+  rediscache:
+    driver: local
