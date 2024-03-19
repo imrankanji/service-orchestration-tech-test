@@ -9,10 +9,6 @@ From root directory of this project, push the Docker image to the Minikube clust
 
 ```eval $(minikube docker-env) && docker build --no-cache -t pw/crudservice:latest ./service/```
 
-or
-
-```minikube cache add pw/crudservice:latest```
-
 Apply the Kubernetes manifests to deploy the application, Redis server, and expose the services:
 
 ```
